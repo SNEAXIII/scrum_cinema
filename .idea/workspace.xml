@@ -2,110 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be6d1de8-7cb8-4ca9-96d1-bc10b81d1fec" name="Changes" comment="First commit">
-      <change afterPath="$PROJECT_DIR$/.idea/Projet cinoche.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/.env.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/assets/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/assets/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/assets/controllers.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/assets/controllers/hello_controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/assets/diags.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/assets/styles/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/bin/console" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/bin/phpunit" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/compose.override.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/bundles.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/asset_mapper.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/cache.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/debug.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/framework.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/mailer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/messenger.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/notifier.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/routing.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/security.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/translation.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/twig.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/validator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/web_profiler.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/preload.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/routes.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/routes/framework.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/routes/security.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/routes/web_profiler.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/config/services.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/importmap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/migrations/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/phpunit.xml.dist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/public/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/src/Controller/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/src/Entity/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/src/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/src/Repository/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/symfony.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/templates/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/tests/bootstrap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/translations/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/.env.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/assets/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/assets/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/assets/controllers.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/assets/controllers/hello_controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/assets/styles/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/bin/console" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/bin/phpunit" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/compose.override.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/bundles.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/asset_mapper.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/cache.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/debug.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/framework.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/mailer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/messenger.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/notifier.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/routing.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/security.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/translation.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/twig.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/validator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/packages/web_profiler.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/preload.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/routes.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/routes/framework.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/routes/security.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/routes/web_profiler.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/config/services.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/importmap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/migrations/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/phpunit.xml.dist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/public/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/src/Controller/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/src/Entity/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/src/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/src/Repository/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/symfony.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/templates/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/tests/bootstrap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/client_cinema/translations/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/api_cinema/docs/database.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +16,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2e99ihkjxFgp3hIdlyYN2PICLKX" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -128,10 +29,16 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.fileTypes",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Alexis\Desktop\Projet cinoche\api\api_cinema\docs" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -140,8 +47,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711306057951</updated>
-      <workItem from="1711306060989" duration="941000" />
+      <workItem from="1711306060989" duration="4799000" />
     </task>
+    <task id="LOCAL-00001" summary="First commit">
+      <created>1711310178623</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711310178623</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
