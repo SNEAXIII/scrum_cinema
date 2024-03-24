@@ -1,0 +1,52 @@
+@startuml
+
+abstract Visiteur{
+    +creerCompteUtilisateur()
+    +seConnecter()
+    +listerFilmsAffiche()
+    +listerProjectionPourUnFilm()
+    +calculerNombrePlaceParPeriode()
+    +calculerNombrePlaceParFilm()
+}
+
+class User {
+    -int $idUser
+    -string $email
+    -string $motDePasse
+    -array $roles
+    +abonner()
+    +reserverSeance()
+}
+
+class Film {
+    -int $idFilm
+    -string $titre
+    -int $duree
+}
+
+class Reservation{
+    -int $idReservation
+    -int $nombrePlaces
+    -datetime $dateReservation
+    -float $montantTotal
+}
+
+class Seance {
+    -int $idSeance
+    -datetime $dateProjection
+    -float $tarifNormal
+    -float $tarifReduit
+}
+
+class Salle {
+    -string $idSalle
+    -string $nom
+    -int $nombrePlaces
+}
+
+Visiteur --|> User
+User "1..1" --> "0..*" Reservation : > Reserve
+Reservation "0..*" --> "1..1" Seance : > Concerne
+Seance "0..*" --> "1..1" Film : > Diffuse
+Seance "1..*" --> "1..1" Salle : > Se situe
+@enduml
