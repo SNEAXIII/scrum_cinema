@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be6d1de8-7cb8-4ca9-96d1-bc10b81d1fec" name="Changes" comment="First commit">
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/docs/database.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="be6d1de8-7cb8-4ca9-96d1-bc10b81d1fec" name="Changes" comment="Update workspace.xml" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +44,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711306057951</updated>
-      <workItem from="1711306060989" duration="4799000" />
+      <workItem from="1711306060989" duration="5315000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1711310178623</created>
@@ -56,7 +53,21 @@
       <option name="project" value="LOCAL" />
       <updated>1711310178623</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Ajout diagramme de classe">
+      <created>1711316570998</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711316570998</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update workspace.xml">
+      <created>1711316655277</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711316655277</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,6 +86,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
+    <MESSAGE value="Ajout diagramme de classe" />
+    <MESSAGE value="Update workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update workspace.xml" />
   </component>
 </project>
