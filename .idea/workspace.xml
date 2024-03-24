@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be6d1de8-7cb8-4ca9-96d1-bc10b81d1fec" name="Changes" comment="Fix workspace">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="be6d1de8-7cb8-4ca9-96d1-bc10b81d1fec" name="Changes" comment="Fix diagram">
+      <change afterPath="$PROJECT_DIR$/api/api_cinema/migrations/Version20240324222541.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/api_cinema/src/Entity/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/api_cinema/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f2d516f8-cc48-45eb-8eaf-dd3d3c95a87a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f2d516f8-cc48-45eb-8eaf-dd3d3c95a87a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api_cinema/.env" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_cinema/migrations/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +26,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2e99ihkjxFgp3hIdlyYN2PICLKX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -56,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711306057951</updated>
       <workItem from="1711306060989" duration="5315000" />
-      <workItem from="1711316696032" duration="874000" />
+      <workItem from="1711316696032" duration="2575000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1711310178623</created>
@@ -93,7 +102,21 @@
       <option name="project" value="LOCAL" />
       <updated>1711316841402</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Création base de donées">
+      <created>1711317698287</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711317698287</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fix diagram">
+      <created>1711319263075</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711319263075</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,10 +146,13 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First commit" />
     <MESSAGE value="Ajout diagramme de classe" />
     <MESSAGE value="Update workspace.xml" />
     <MESSAGE value="Fix workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix workspace" />
+    <MESSAGE value="Création base de donées" />
+    <MESSAGE value="Fix diagram" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix diagram" />
   </component>
 </project>

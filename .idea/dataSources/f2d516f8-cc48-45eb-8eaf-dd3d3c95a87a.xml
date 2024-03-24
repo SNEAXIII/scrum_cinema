@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="@localhost">
+<dataSource name="db_cinema@localhost">
   <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.43">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
@@ -1141,7 +1141,6 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <Charset>utf8mb4</Charset>
     </collation>
     <schema id="324" parent="1" name="aerisbtp">
-      <Current>1</Current>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="325" parent="1" name="api_cinema">
@@ -1151,6 +1150,7 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="327" parent="1" name="db_cinema">
+      <Current>1</Current>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="328" parent="1" name="db_etudiant">
@@ -1183,5 +1183,132 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
     <user id="337" parent="1" name="root">
       <Host>localhost</Host>
     </user>
+    <table id="338" parent="327" name="doctrine_migration_versions">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8_unicode_ci</CollationName>
+    </table>
+    <table id="339" parent="327" name="messenger_messages">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="340" parent="327" name="user">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <column id="341" parent="338" name="version">
+      <DataType>varchar(191)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="342" parent="338" name="executed_at">
+      <DataType>datetime|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="343" parent="338" name="execution_time">
+      <DataType>int(11)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <index id="344" parent="338" name="PRIMARY">
+      <ColNames>version</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="345" parent="338" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="346" parent="339" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="347" parent="339" name="body">
+      <DataType>longtext|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="348" parent="339" name="headers">
+      <DataType>longtext|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="349" parent="339" name="queue_name">
+      <DataType>varchar(190)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="350" parent="339" name="created_at">
+      <Comment>(DC2Type:datetime_immutable)</Comment>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="351" parent="339" name="available_at">
+      <Comment>(DC2Type:datetime_immutable)</Comment>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="352" parent="339" name="delivered_at">
+      <Comment>(DC2Type:datetime_immutable)</Comment>
+      <DataType>datetime|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <index id="353" parent="339" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="354" parent="339" name="IDX_75EA56E0FB7336F0">
+      <ColNames>queue_name</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="355" parent="339" name="IDX_75EA56E0E3BD61CE">
+      <ColNames>available_at</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="356" parent="339" name="IDX_75EA56E016BA31DB">
+      <ColNames>delivered_at</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="357" parent="339" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="358" parent="340" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="359" parent="340" name="email">
+      <DataType>varchar(70)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="360" parent="340" name="mot_de_passe">
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="361" parent="340" name="roles">
+      <Comment>(DC2Type:array)</Comment>
+      <DataType>longtext|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <index id="362" parent="340" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="363" parent="340" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>
