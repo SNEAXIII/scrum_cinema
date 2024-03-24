@@ -10,7 +10,7 @@ abstract Visiteur{
 }
 
 class User {
-    -int $idUser
+    -int $id
     -string $email
     -string $motDePasse
     -array $roles
@@ -19,27 +19,27 @@ class User {
 }
 
 class Film {
-    -int $idFilm
+    -int $id
     -string $titre
     -int $duree
 }
 
 class Reservation{
-    -int $idReservation
+    -int $id
     -int $nombrePlaces
     -datetime $dateReservation
     -float $montantTotal
 }
 
 class Seance {
-    -int $idSeance
+    -int $id
     -datetime $dateProjection
     -float $tarifNormal
     -float $tarifReduit
 }
 
 class Salle {
-    -string $idSalle
+    -string $id
     -string $nom
     -int $nombrePlaces
 }
