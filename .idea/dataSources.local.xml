@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="PS-222.4345.15">
+  <component name="dataSourceStorageLocal" created-in="PS-232.10072.32">
     <data-source name="db_cinema@localhost" uuid="f2d516f8-cc48-45eb-8eaf-dd3d3c95a87a">
-      <database-info product="MariaDB" version="10.4.25-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.4.25" exact-driver-version="3.0">
+      <database-info product="MariaDB" version="10.4.28-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.4.28" exact-driver-version="3.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>

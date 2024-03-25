@@ -5,32 +5,40 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User
+#[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 70)]
+    #[ORM\Column(length: 180)]
     private ?string $email = null;
 
-    #[ORM\Column(length: 40)]
-    private ?string $motDePasse = null;
-
-    #[ORM\Column(type: Types::ARRAY)]
+    /**
+     * @var list<string> The user roles
+     */
+    #[ORM\Column]
     private array $roles = [];
 
-    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'reservePar')]
-    private Collection $reservations;
+    /**
+     * @var string The hashed password
+     */
+    #[ORM\Column]
+    private ?string $password = null;
+
+    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'user')]
+    private Collection $reservation;
 
     public function __construct()
     {
-        $this->reservations = new ArrayCollection();
+        $this->reservation = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -50,23 +58,33 @@ class User
         return $this;
     }
 
-    public function getMotDePasse(): ?string
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
     {
-        return $this -> motDePasse;
+        return (string)$this -> email;
     }
 
-    public function setMotDePasse(string $motDePasse): static
-    {
-        $this -> motDePasse = $motDePasse;
-
-        return $this;
-    }
-
+    /**
+     * @return list<string>
+     * @see UserInterface
+     *
+     */
     public function getRoles(): array
     {
-        return $this -> roles;
+        $roles = $this -> roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
+    /**
+     * @param list<string> $roles
+     */
     public function setRoles(array $roles): static
     {
         $this -> roles = $roles;
@@ -75,18 +93,39 @@ class User
     }
 
     /**
-     * @return Collection<int, Reservation>
+     * @see PasswordAuthenticatedUserInterface
      */
+    public function getPassword(): string
+    {
+        return $this -> password;
+    }
+
+    public function setPassword(string $password): static
+    {
+        $this -> password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials(): void
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
     public function getReservations(): Collection
     {
-        return $this->reservations;
+        return $this -> reservations;
     }
 
     public function addReservation(Reservation $reservation): static
     {
-        if (!$this->reservations->contains($reservation)) {
-            $this->reservations->add($reservation);
-            $reservation->setReservePar($this);
+        if (!$this -> reservations -> contains($reservation)) {
+            $this -> reservations -> add($reservation);
+            $reservation -> setReservePar($this);
         }
 
         return $this;
@@ -94,13 +133,22 @@ class User
 
     public function removeReservation(Reservation $reservation): static
     {
-        if ($this->reservations->removeElement($reservation)) {
+        if ($this -> reservations -> removeElement($reservation)) {
             // set the owning side to null (unless already changed)
-            if ($reservation->getReservePar() === $this) {
-                $reservation->setReservePar(null);
+            if ($reservation -> getReservePar() === $this) {
+                $reservation -> setReservePar(null);
             }
         }
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Reservation>
+     */
+    public function getReservation(): Collection
+    {
+        return $this->reservation;
+    }
+
 }

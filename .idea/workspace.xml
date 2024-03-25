@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="be6d1de8-7cb8-4ca9-96d1-bc10b81d1fec" name="Changes" comment="Add entity user">
-      <change beforePath="$PROJECT_DIR$/api/api_cinema/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api_cinema/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/api_cinema/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Projet cinoche.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projet cinoche.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f2d516f8-cc48-45eb-8eaf-dd3d3c95a87a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f2d516f8-cc48-45eb-8eaf-dd3d3c95a87a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f2d516f8-cc48-45eb-8eaf-dd3d3c95a87a/storage_v2/_src_/schema/db_cinema.0nlJ_w.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f2d516f8-cc48-45eb-8eaf-dd3d3c95a87a/storage_v2/_src_/schema/db_cinema.0nlJ_w.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_cinema/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_cinema/migrations/Version20240324222541.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_cinema/migrations/Version20240324232033.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/migrations/Version20240325110320.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_cinema/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/src/Entity/Reservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_cinema/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_cinema/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/src/Repository/UserRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,11 +28,20 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2e99ihkjxFgp3hIdlyYN2PICLKX" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -35,8 +58,12 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -47,6 +74,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bassignota\Documents\Projet\PHP\projet\scrum_cinema\api\api_cinema\src" />
+      <recent name="C:\Users\bassignota\Documents\Projet\PHP\projet\scrum_cinema\api\api_cinema\assets" />
       <recent name="D:\Alexis\Desktop\Projet cinoche\api\api_cinema\docs" />
     </key>
   </component>
@@ -60,6 +89,8 @@
       <updated>1711306057951</updated>
       <workItem from="1711306060989" duration="5315000" />
       <workItem from="1711316696032" duration="3118000" />
+      <workItem from="1711360197150" duration="4317000" />
+      <workItem from="1711364660956" duration="1254000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1711310178623</created>

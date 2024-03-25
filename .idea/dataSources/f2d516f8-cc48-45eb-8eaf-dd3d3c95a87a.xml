@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="db_cinema@localhost">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.43">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.49">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -132,7 +132,7 @@ test\\_%|schema||&apos;&apos;||SELECT|G
 test\\_%|schema||&apos;&apos;||SHOW VIEW|G
 test\\_%|schema||&apos;&apos;||TRIGGER|G
 test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
-      <ServerVersion>10.4.25</ServerVersion>
+      <ServerVersion>10.4.28</ServerVersion>
     </root>
     <collation id="2" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
@@ -1143,172 +1143,398 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
     <schema id="324" parent="1" name="aerisbtp">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="325" parent="1" name="api_cinema">
+    <schema id="325" parent="1" name="db_bibliotheque">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="326" parent="1" name="db_bibliotheque">
-      <CollationName>utf8mb4_general_ci</CollationName>
-    </schema>
-    <schema id="327" parent="1" name="db_cinema">
+    <schema id="326" parent="1" name="db_cinema">
       <Current>1</Current>
+      <IntrospectionTimestamp>2024-03-25.13:03:29</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-03-25.11:03:29</LocalIntrospectionTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="328" parent="1" name="db_etudiant">
+    <schema id="327" parent="1" name="db_etudiants">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="329" parent="1" name="db_etudiants">
-      <CollationName>utf8mb4_general_ci</CollationName>
-    </schema>
-    <schema id="330" parent="1" name="information_schema">
+    <schema id="328" parent="1" name="information_schema">
       <CollationName>utf8_general_ci</CollationName>
     </schema>
-    <schema id="331" parent="1" name="magasintest">
+    <schema id="329" parent="1" name="mysql">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="332" parent="1" name="mysql">
-      <CollationName>utf8mb4_general_ci</CollationName>
-    </schema>
-    <schema id="333" parent="1" name="phpmyadmin">
+    <schema id="330" parent="1" name="phpmyadmin">
       <CollationName>utf8_bin</CollationName>
     </schema>
-    <user id="334" parent="1" name="pma">
+    <schema id="331" parent="1" name="bibliotheque-demo">
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <schema id="332" parent="1" name="cs_2023_cafe">
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <schema id="333" parent="1" name="db-api-posts">
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <schema id="334" parent="1" name="performance_schema">
+      <CollationName>utf8_general_ci</CollationName>
+    </schema>
+    <schema id="335" parent="1" name="test">
+      <CollationName>latin1_swedish_ci</CollationName>
+    </schema>
+    <schema id="336" parent="1" name="testmagasin">
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <user id="337" parent="1" name="pma">
       <Host>localhost</Host>
     </user>
-    <user id="335" parent="1" name="root">
+    <user id="338" parent="1" name="root">
       <Host>127.0.0.1</Host>
     </user>
-    <user id="336" parent="1" name="root">
+    <user id="339" parent="1" name="root">
       <Host>::1</Host>
     </user>
-    <user id="337" parent="1" name="root">
+    <user id="340" parent="1" name="root">
       <Host>localhost</Host>
     </user>
-    <table id="338" parent="327" name="doctrine_migration_versions">
+    <table id="341" parent="326" name="doctrine_migration_versions">
       <Engine>InnoDB</Engine>
       <CollationName>utf8_unicode_ci</CollationName>
     </table>
-    <table id="339" parent="327" name="messenger_messages">
+    <table id="342" parent="326" name="film">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="340" parent="327" name="user">
+    <table id="343" parent="326" name="messenger_messages">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <column id="341" parent="338" name="version">
-      <DataType>varchar(191)|0s</DataType>
+    <table id="344" parent="326" name="reservation">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="345" parent="326" name="salle">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="346" parent="326" name="seance">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="347" parent="326" name="user">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <column id="348" parent="341" name="version">
+      <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="342" parent="338" name="executed_at">
-      <DataType>datetime|0s</DataType>
+    <column id="349" parent="341" name="executed_at">
+      <DasType>datetime|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="343" parent="338" name="execution_time">
-      <DataType>int(11)|0s</DataType>
+    <column id="350" parent="341" name="execution_time">
+      <DasType>int(11)|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="344" parent="338" name="PRIMARY">
+    <index id="351" parent="341" name="PRIMARY">
       <ColNames>version</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="345" parent="338" name="PRIMARY">
+    <key id="352" parent="341" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="346" parent="339" name="id">
+    <column id="353" parent="342" name="id">
       <AutoIncrement>1</AutoIncrement>
-      <DataType>bigint(20)|0s</DataType>
+      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="347" parent="339" name="body">
-      <DataType>longtext|0s</DataType>
+    <column id="354" parent="342" name="titre">
+      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="348" parent="339" name="headers">
-      <DataType>longtext|0s</DataType>
+    <column id="355" parent="342" name="duree">
+      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="349" parent="339" name="queue_name">
-      <DataType>varchar(190)|0s</DataType>
+    <index id="356" parent="342" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="357" parent="342" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="358" parent="343" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>bigint(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="359" parent="343" name="body">
+      <DasType>longtext|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="360" parent="343" name="headers">
+      <DasType>longtext|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="361" parent="343" name="queue_name">
+      <DasType>varchar(190)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="350" parent="339" name="created_at">
+    <column id="362" parent="343" name="created_at">
       <Comment>(DC2Type:datetime_immutable)</Comment>
-      <DataType>datetime|0s</DataType>
+      <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="351" parent="339" name="available_at">
+    <column id="363" parent="343" name="available_at">
       <Comment>(DC2Type:datetime_immutable)</Comment>
-      <DataType>datetime|0s</DataType>
+      <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="352" parent="339" name="delivered_at">
+    <column id="364" parent="343" name="delivered_at">
       <Comment>(DC2Type:datetime_immutable)</Comment>
-      <DataType>datetime|0s</DataType>
+      <DasType>datetime|0s</DasType>
       <Position>7</Position>
     </column>
-    <index id="353" parent="339" name="PRIMARY">
+    <index id="365" parent="343" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="354" parent="339" name="IDX_75EA56E0FB7336F0">
+    <index id="366" parent="343" name="IDX_75EA56E0FB7336F0">
       <ColNames>queue_name</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="355" parent="339" name="IDX_75EA56E0E3BD61CE">
+    <index id="367" parent="343" name="IDX_75EA56E0E3BD61CE">
       <ColNames>available_at</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="356" parent="339" name="IDX_75EA56E016BA31DB">
+    <index id="368" parent="343" name="IDX_75EA56E016BA31DB">
       <ColNames>delivered_at</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="357" parent="339" name="PRIMARY">
+    <key id="369" parent="343" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="358" parent="340" name="id">
+    <column id="370" parent="344" name="id">
       <AutoIncrement>1</AutoIncrement>
-      <DataType>int(11)|0s</DataType>
+      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="359" parent="340" name="email">
-      <DataType>varchar(70)|0s</DataType>
+    <column id="371" parent="344" name="reserve_par_id">
+      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="360" parent="340" name="mot_de_passe">
-      <DataType>varchar(40)|0s</DataType>
+    <column id="372" parent="344" name="seance_id">
+      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="361" parent="340" name="roles">
-      <Comment>(DC2Type:array)</Comment>
-      <DataType>longtext|0s</DataType>
+    <column id="373" parent="344" name="user_id">
+      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="362" parent="340" name="PRIMARY">
+    <column id="374" parent="344" name="nombre_places">
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="375" parent="344" name="date_reservation">
+      <Comment>(DC2Type:datetime_immutable)</Comment>
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="376" parent="344" name="montant_total">
+      <DasType>double|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <foreign-key id="377" parent="344" name="FK_42C8495570E4F16E">
+      <ColNames>reserve_par_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>user</RefTableName>
+    </foreign-key>
+    <foreign-key id="378" parent="344" name="FK_42C84955E3797A94">
+      <ColNames>seance_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>seance</RefTableName>
+    </foreign-key>
+    <foreign-key id="379" parent="344" name="FK_42C84955A76ED395">
+      <ColNames>user_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>user</RefTableName>
+    </foreign-key>
+    <index id="380" parent="344" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="363" parent="340" name="PRIMARY">
+    <index id="381" parent="344" name="IDX_42C8495570E4F16E">
+      <ColNames>reserve_par_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="382" parent="344" name="IDX_42C84955E3797A94">
+      <ColNames>seance_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="383" parent="344" name="IDX_42C84955A76ED395">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="384" parent="344" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="385" parent="345" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="386" parent="345" name="nom">
+      <DasType>varchar(50)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="387" parent="345" name="nombre_places">
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <index id="388" parent="345" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="389" parent="345" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="390" parent="346" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="391" parent="346" name="salle_id">
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="392" parent="346" name="film_id">
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="393" parent="346" name="date_projection">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="394" parent="346" name="tarif_normal">
+      <DasType>double|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="395" parent="346" name="tarif_reduit">
+      <DasType>double|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <foreign-key id="396" parent="346" name="FK_DF7DFD0EDC304035">
+      <ColNames>salle_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>salle</RefTableName>
+    </foreign-key>
+    <foreign-key id="397" parent="346" name="FK_DF7DFD0E567F5183">
+      <ColNames>film_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>film</RefTableName>
+    </foreign-key>
+    <index id="398" parent="346" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="399" parent="346" name="IDX_DF7DFD0EDC304035">
+      <ColNames>salle_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="400" parent="346" name="IDX_DF7DFD0E567F5183">
+      <ColNames>film_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="401" parent="346" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <check id="402" parent="347" name="roles">
+      <ColNames>roles</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>json_valid(`roles`)</Predicate>
+    </check>
+    <column id="403" parent="347" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="404" parent="347" name="email">
+      <DasType>varchar(180)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="405" parent="347" name="roles">
+      <Comment>(DC2Type:json)</Comment>
+      <DasType>longtext|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <CollationName>utf8mb4_bin</CollationName>
+    </column>
+    <column id="406" parent="347" name="password">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <index id="407" parent="347" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="408" parent="347" name="UNIQ_IDENTIFIER_EMAIL">
+      <ColNames>email</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="409" parent="347" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="410" parent="347" name="UNIQ_IDENTIFIER_EMAIL">
+      <UnderlyingIndexName>UNIQ_IDENTIFIER_EMAIL</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

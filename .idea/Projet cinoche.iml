@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/api/api_cinema/migrations" isTestSource="false" packagePrefix="DoctrineMigrations" />
+      <sourceFolder url="file://$MODULE_DIR$/api/api_cinema/src" isTestSource="false" packagePrefix="App" />
+      <sourceFolder url="file://$MODULE_DIR$/api/client_cinema/src" isTestSource="false" packagePrefix="App" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="25a40506-493c-49bb-8e26-1325cee80440" />
   </component>
 </module>
