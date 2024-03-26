@@ -30,10 +30,6 @@ class Reservation
     #[ORM\JoinColumn(nullable: false)]
     private ?Seance $seance = null;
 
-    #[ORM\ManyToOne(inversedBy: 'reservation')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $user = null;
-
     public function getId(): ?int
     {
         return $this->id;

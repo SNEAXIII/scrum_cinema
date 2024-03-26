@@ -5,19 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be6d1de8-7cb8-4ca9-96d1-bc10b81d1fec" name="Changes" comment="Add entity user">
-      <change afterPath="$PROJECT_DIR$/api/api_cinema/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Projet cinoche.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projet cinoche.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/api_cinema/src/DataFixtures/FilmFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/api_cinema/src/DataFixtures/SalleFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/api_cinema/src/DataFixtures/SeanceFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/f2d516f8-cc48-45eb-8eaf-dd3d3c95a87a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f2d516f8-cc48-45eb-8eaf-dd3d3c95a87a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/f2d516f8-cc48-45eb-8eaf-dd3d3c95a87a/storage_v2/_src_/schema/db_cinema.0nlJ_w.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f2d516f8-cc48-45eb-8eaf-dd3d3c95a87a/storage_v2/_src_/schema/db_cinema.0nlJ_w.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/a/2ac0898b751925e7203f6774244c2b5b8f22d54e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/a/2ac0898b751925e7203f6774244c2b5b8f22d54e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api_cinema/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api_cinema/migrations/Version20240324222541.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api_cinema/migrations/Version20240324232033.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/migrations/Version20240325110320.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_cinema/migrations/Version20240325110320.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/migrations/Version20240326093457.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_cinema/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/src/DataFixtures/UserFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/api_cinema/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/src/Entity/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api_cinema/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api_cinema/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_cinema/src/Repository/UserRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +90,7 @@
       <workItem from="1711316696032" duration="3118000" />
       <workItem from="1711360197150" duration="4317000" />
       <workItem from="1711364660956" duration="1254000" />
+      <workItem from="1711444457515" duration="6061000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1711310178623</created>
