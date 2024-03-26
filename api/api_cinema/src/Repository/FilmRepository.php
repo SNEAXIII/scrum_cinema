@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Film;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -18,31 +19,21 @@ class FilmRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Film::class);
+        parent ::__construct($registry, Film::class);
     }
 
-//    /**
-//     * @return Film[] Returns an array of Film objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('f.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Film
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    /**
+     * @return Film[] Returns an array of Film objects
+     */
+    public function findAllFilmsAffiche(): array
+    {
+        return $this -> createQueryBuilder('film')
+            -> select('DISTINCT film')
+            -> from('App\Entity\Film', 'f')
+            -> innerJoin('App\Entity\Seance', 's', 'WITH', 's.film = film')
+            -> andWhere('s.dateProjection  >= :now')
+            -> setParameter('now', new DateTime())
+            -> getQuery()
+            -> getResult();
+    }
 }

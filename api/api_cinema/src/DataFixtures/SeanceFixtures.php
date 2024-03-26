@@ -16,26 +16,27 @@ class SeanceFixtures extends Fixture
 
     public function __construct(FilmRepository $filmRepository, SalleRepository $salleRepository)
     {
-        $this->filmRepository = $filmRepository;
-        $this->salleRepository = $salleRepository;
+        $this -> filmRepository = $filmRepository;
+        $this -> salleRepository = $salleRepository;
     }
+
     public function load(ObjectManager $manager): void
     {
         //initialiser Faker
-        $faker = Factory::create("fr_FR");
-        $arrayFilms = $this->filmRepository->findAll();
-        $arraySalles = $this->salleRepository->findAll();
+        $faker = Factory ::create("fr_FR");
+        $arrayFilms = $this -> filmRepository -> findAll();
+        $arraySalles = $this -> salleRepository -> findAll();
 
-        for ($i=0; $i<15; $i++) {
+        foreach (range(0, 75) as $i) {
             $seance = new Seance();
             if ($i % 3 == 0) {
                 $startDate = "now";
-                $endDate = "+10 days";
+                $endDate = "1 month";
             } else {
-                $startDate = "-3 months";
+                $startDate = "-1 month";
                 $endDate = "now";
             }
-            $seance->setDateProjection($faker -> dateTimeBetween($startDate, $endDate));
+            $seance -> setDateProjection($faker -> dateTimeBetween($startDate, $endDate));
             if ($i % 4 == 3) {
                 $decimal = 0.5;
             } else {
@@ -44,12 +45,12 @@ class SeanceFixtures extends Fixture
             $tarifNormal = random_int(7, 15) + $decimal;
             $seance -> setTarifNormal($tarifNormal);
             $seance -> setTarifReduit($tarifNormal - 3);
-            $seance -> setFilm($faker->randomElement(  $arrayFilms));
-            $seance -> setSalle($faker->randomElement(  $arraySalles));
-            $manager->persist($seance);
+            $seance -> setFilm($faker -> randomElement($arrayFilms));
+            $seance -> setSalle($faker -> randomElement($arraySalles));
+            $manager -> persist($seance);
 
         }
-        $manager->flush();
+        $manager -> flush();
     }
 
 
