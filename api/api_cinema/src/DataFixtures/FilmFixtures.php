@@ -6,6 +6,7 @@ use App\Entity\Film;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
+use Xylis\FakerCinema\Provider\Movie;
 
 class FilmFixtures extends Fixture
 {
@@ -13,7 +14,7 @@ class FilmFixtures extends Fixture
     {
         //initialiser Faker
         $faker = Factory ::create("fr_FR");
-        $faker -> addProvider(new \Xylis\FakerCinema\Provider\Movie($faker));
+        $faker -> addProvider(new Movie($faker));
         foreach (range(0, 25) as $i) {
             $newFilm = new Film();
             $newFilm -> setTitre($faker -> movie);

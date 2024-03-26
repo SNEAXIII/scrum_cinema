@@ -13,7 +13,7 @@ class SalleFixtures extends Fixture
     {
         //initialiser Faker
         $faker = Factory ::create("fr_FR");
-        foreach (range(0, 5) as $i) {
+        foreach (range(0, 4) as $i) {
             $newSalle = new Salle();
             $newSalle->setNom($faker->name());
             $newSalle->setNombrePlaces($faker->numberBetween(5, 400));
