@@ -21,14 +21,12 @@ class SeanceFixtures extends Fixture
     }
     public function load(ObjectManager $manager): void
     {
-
         //initialiser Faker
         $faker = Factory::create("fr_FR");
         $arrayFilms = $this->filmRepository->findAll();
         $arraySalles = $this->salleRepository->findAll();
 
         for ($i=0; $i<15; $i++) {
-
             $seance = new Seance();
             if ($i % 3 == 0) {
                 $startDate = "now";
@@ -46,16 +44,11 @@ class SeanceFixtures extends Fixture
             $tarifNormal = random_int(7, 15) + $decimal;
             $seance -> setTarifNormal($tarifNormal);
             $seance -> setTarifReduit($tarifNormal - 3);
-
             $seance -> setFilm($faker->randomElement(  $arrayFilms));
             $seance -> setSalle($faker->randomElement(  $arraySalles));
-
-
             $manager->persist($seance);
 
-
         }
-
         $manager->flush();
     }
 
