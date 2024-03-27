@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="{{ path("app_accueil") }}">Acceuil <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="{{ path("app_user_login") }}">Se connecter</a>
+            <a class="nav-item nav-link" href="{{ path("app_personne_register") }}">S'inscrire</a>
+            <a class="nav-item nav-link" href="{{ path("app_posts_index") }}">Lister les posts</a>
+        </div>
+    </div>
+</nav>
