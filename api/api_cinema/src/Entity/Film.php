@@ -25,8 +25,8 @@ class Film
     #[Groups(['list_film', 'show_film'])]
     private ?int $duree = null;
 
-    #[Groups(['show_film'])]
     #[ORM\OneToMany(targetEntity: Seance::class, mappedBy: 'film')]
+    #[Groups(['show_film'])]
     private Collection $seances;
 
     public function __construct()
