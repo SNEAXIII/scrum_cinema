@@ -40,46 +40,47 @@ class Seance
 
     public function __construct()
     {
-        $this->reservations = new ArrayCollection();
+        $this -> reservations = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
-        return $this->id;
+        return $this -> id;
     }
 
     public function getDateProjection(): ?\DateTimeInterface
     {
-        return $this->dateProjection;
+        return $this -> dateProjection;
     }
 
     public function setDateProjection(\DateTimeInterface $dateProjection): static
     {
-        $this->dateProjection = $dateProjection;
+        $this -> dateProjection = $dateProjection;
 
         return $this;
     }
 
     public function getTarifNormal(): ?float
     {
-        return $this->tarifNormal;
+        return $this -> tarifNormal;
     }
 
     public function setTarifNormal(float $tarifNormal): static
     {
-        $this->tarifNormal = $tarifNormal;
+        $this -> tarifNormal = $tarifNormal;
 
         return $this;
     }
 
     public function getTarifReduit(): ?float
     {
-        return $this->tarifReduit;
+        return $this -> tarifReduit;
     }
 
     public function setTarifReduit(float $tarifReduit): static
     {
-        $this->tarifReduit = $tarifReduit;
+        $this -> tarifReduit = $tarifReduit;
 
         return $this;
     }
@@ -89,14 +90,14 @@ class Seance
      */
     public function getReservations(): Collection
     {
-        return $this->reservations;
+        return $this -> reservations;
     }
 
     public function addReservation(Reservation $reservation): static
     {
-        if (!$this->reservations->contains($reservation)) {
-            $this->reservations->add($reservation);
-            $reservation->setSeance($this);
+        if (!$this -> reservations -> contains($reservation)) {
+            $this -> reservations -> add($reservation);
+            $reservation -> setSeance($this);
         }
 
         return $this;
@@ -104,10 +105,10 @@ class Seance
 
     public function removeReservation(Reservation $reservation): static
     {
-        if ($this->reservations->removeElement($reservation)) {
+        if ($this -> reservations -> removeElement($reservation)) {
             // set the owning side to null (unless already changed)
-            if ($reservation->getSeance() === $this) {
-                $reservation->setSeance(null);
+            if ($reservation -> getSeance() === $this) {
+                $reservation -> setSeance(null);
             }
         }
 
@@ -116,24 +117,24 @@ class Seance
 
     public function getSalle(): ?Salle
     {
-        return $this->salle;
+        return $this -> salle;
     }
 
     public function setSalle(?Salle $salle): static
     {
-        $this->salle = $salle;
+        $this -> salle = $salle;
 
         return $this;
     }
 
     public function getFilm(): ?Film
     {
-        return $this->film;
+        return $this -> film;
     }
 
     public function setFilm(?Film $film): static
     {
-        $this->film = $film;
+        $this -> film = $film;
 
         return $this;
     }

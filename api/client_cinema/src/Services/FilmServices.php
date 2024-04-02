@@ -28,11 +28,18 @@ class FilmServices
      * @throws DecodingExceptionInterface
      * @throws ClientExceptionInterface
      */
-    public function getAllFilms()
+    public function getAllFilms(): array
     {
         $link = Constants::API_LINK . "/films";
-        $reponseApi = $this -> httpClient -> request("GET", $link);
-        return $reponseApi -> toArray();
+        $reponse = $this -> httpClient -> request("GET", $link) -> toArray();
+        return $reponse;
+    }
+
+    public function getOneFilms(int $id): array
+    {
+        $link = Constants::API_LINK . "/films/$id";
+        $reponse = $this -> httpClient -> request("GET", $link) -> toArray();
+        return $reponse;
     }
 
 }
