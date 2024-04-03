@@ -27,9 +27,14 @@ class FilmUtils
 
     public function convertDateAndIntToStringForAFilm(array $film): array
     {
-        #todo fix les dates
+//        todo supprimer les dates antidatées
         foreach ($film["seances"] as &$seance) {
             $date = date_create_from_format("Y-m-d\TH:i:sP",$seance["dateProjection"]);
+            $seance["dateProjection"] = $date;
+        }
+        sort($film["seances"]);
+        foreach ($film["seances"] as &$seance) {
+            $date = $seance["dateProjection"];
             $year = $date -> format("Y");
             $month = $this -> intToMonthArray[intval($date -> format("m"))];
             $day = $date -> format("d");
