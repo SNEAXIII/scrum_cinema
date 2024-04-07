@@ -8,7 +8,8 @@ use Doctrine\ORM\EntityManagerInterface;
 class NewUserValidator
 {
     private string $email;
-    private string $password;
+    private string $newPassword;
+    private string $confirmPassword;
     private EntityManagerInterface $entityManager;
 
     /**
@@ -18,7 +19,8 @@ class NewUserValidator
     public function __construct(array $parameters, EntityManagerInterface $entityManager)
     {
         $this -> email = $parameters["email"];
-        $this -> password = $parameters["password"];
+        $this -> newPassword = $parameters["newPassword"];
+        $this -> confirmPassword = $parameters["confirmPassword"];
         $this -> entityManager = $entityManager;
     }
 
@@ -27,19 +29,19 @@ class NewUserValidator
         $emailErrors = [];
         $passwordErrors = [];
         $regex_validation = [
-            "/^.{10,}$/" => "Le mot de passe doit contenir au moins 10 caractères",
-            "/^[a-zA-Z\d?;!:=]*$/" => "Le mot de passe doit contenir uniquement des lettres minuscules ou majuscules, des chiffres, ou les symboles suivants : ?;!:=",
-            "/^(?=.*\d).*$/" => "Le mot de passe doit contenir au moins chiffre",
-            "/^(?=.*[?;!:=]).*$/" => "Le mot de passe doit contenir au moins un caractère spécial : ?;!:=",
-            "/^(?=.*[a-z]).*$/" => "Le mot de passe doit contenir au moins une minuscule",
-            "/^(?=.*[A-Z]).*$/" => "Le mot de passe doit contenir au moins une majuscule",
+            "/^.{10,}$/" => "Le mot de passe doit contenir au moins 10 caractères.",
+            "/^[a-zA-Z\d?;!:=]*$/" => "Le mot de passe doit contenir uniquement des lettres minuscules ou majuscules, des chiffres, ou les symboles suivants : ?;!:=.",
+            "/^(?=.*\d).*$/" => "Le mot de passe doit contenir au moins chiffre.",
+            "/^(?=.*[?;!:=]).*$/" => "Le mot de passe doit contenir au moins un caractère spécial : ?;!:=.",
+            "/^(?=.*[a-z]).*$/" => "Le mot de passe doit contenir au moins une minuscule.",
+            "/^(?=.*[A-Z]).*$/" => "Le mot de passe doit contenir au moins une majuscule.",
         ];
 
         // Email validation
         $userRepository = $this -> entityManager -> getRepository(User::class);
 
         if ($userRepository -> findOneBy(["email" => $this -> email])) {
-            $emailErrors[] = "L'email saisi existe déjà, veuillez en choisir une autre !!!";
+            $emailErrors[] = "L'email saisi appartient à un compte existant, veuillez en choisir une autre !!!";
         }
 
         if (!filter_var($this -> email, FILTER_VALIDATE_EMAIL)) {
@@ -48,11 +50,16 @@ class NewUserValidator
 
         // Password validation
         foreach ($regex_validation as $pattern => $errorMessage) {
-            if (!preg_match($pattern, $this -> password)) {
+            if (!preg_match($pattern, $this -> newPassword)) {
                 $passwordErrors[] = $errorMessage;
             }
         }
 
+        if ($this -> newPassword !== $this -> confirmPassword) {
+            $passwordErrors[] = "Les mots de passes ne sont pas identiques.";
+        }
+
+        // Final check
         if (empty($emailErrors) && empty($passwordErrors)) {
             $isValid = true;
             $message = ["Ok"];
