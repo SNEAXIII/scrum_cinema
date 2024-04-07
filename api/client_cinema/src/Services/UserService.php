@@ -9,7 +9,7 @@ use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-class FilmServices
+class UserServices
 {
     private HttpClientInterface $httpClient;
 
@@ -28,18 +28,22 @@ class FilmServices
      * @throws DecodingExceptionInterface
      * @throws ClientExceptionInterface
      */
-    public function getAllFilms(): array
+    public function postOneNewUser(array $arrayData): array
     {
-        $link = Constants::API_LINK . "/films";
-        $response = $this -> httpClient -> request("GET", $link) -> toArray();
+        $link = Constants::API_LINK . "/register";
+        dump($link);
+        $response = $this -> httpClient -> request(
+            'POST',
+            $link,
+            [
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                ],
+                'body' => $arrayData,
+            ])->toArray();
+        dd($response);
         return $response;
     }
 
-    public function getOneFilms(int $id): array
-    {
-        $link = Constants::API_LINK . "/films/$id";
-        $response = $this -> httpClient -> request("GET", $link) -> toArray();
-        return $response;
-    }
 
 }

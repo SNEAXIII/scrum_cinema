@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Services\BuildNewUser;
 use App\Validator\NewUserValidator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,12 +15,12 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class RegistrationController extends AbstractController
 {
-    #[Route('/register', name: 'app_register', methods: ["POST"])]
+    #[Route('/api/register', name: 'app_register', methods: ["POST"])]
     public function register(
         Request                     $request,
         UserPasswordHasherInterface $userPasswordHasher,
         EntityManagerInterface      $entityManager,
-        SerializerInterface $serializer
+        SerializerInterface         $serializer,
     ): Response
     {
         $bodyRequest = $request -> getContent();
@@ -27,19 +28,15 @@ class RegistrationController extends AbstractController
         $userValidator = new NewUserValidator($parameters, $entityManager);
         $validation = $userValidator -> validate();
         if ($validation['isValid']) {
-            $newUser = new User();
-            $newUser -> setEmail($parameters["email"]);
-            $hashedPassword = $userPasswordHasher -> hashPassword($newUser, $parameters["password"]);
-            $newUser -> setPassword($hashedPassword);
-            $newUser -> setRoles(['ROLE_USER']);
+            $buildNewUser = new BuildNewUser($userPasswordHasher);
+            $newUser = $buildNewUser -> execute($parameters);
             $entityManager -> persist($newUser);
             $entityManager -> flush();
-            $group = ['groups' => 'create_user'];
-            $jsoncontent = $serializer -> serialize($newUser, "json", $group);
-            return new Response($jsoncontent,Response::HTTP_CREATED, ["content-type" => "application/json"]);
+            $jsoncontent = $serializer -> serialize($newUser, "json", ['groups' => 'create_user']);
+            return new Response($jsoncontent, Response::HTTP_CREATED, ["content-type" => "application/json"]);
         } else {
             $jsoncontent = json_encode($validation['message']);
-            return new Response($jsoncontent,Response::HTTP_BAD_REQUEST, ["content-type" => "application/json"]);
+            return new Response($jsoncontent, Response::HTTP_BAD_REQUEST, ["content-type" => "application/json"]);
         }
     }
 }
