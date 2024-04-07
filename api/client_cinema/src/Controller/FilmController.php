@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class FilmController extends AbstractController
 {
-    #[Route('', name: 'app_app_accueil')]
+    #[Route('', name: 'app_accueil')]
     #[Route('/films', name: 'app_films_index')]
     public function index(FilmServices $filmService): Response
     {
