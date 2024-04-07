@@ -16,7 +16,8 @@ class FilmController extends AbstractController
     public function index(FilmServices $filmService): Response
     {
         $films = $filmService -> getAllFilms();
-        return $this -> render("film/index.html.twig",
+        return $this -> render(
+            "film/index.html.twig",
             ["films" => $films, "link" => "http://localhost:8001/films/"]);
     }
 
@@ -25,7 +26,8 @@ class FilmController extends AbstractController
     {
         $film = $filmService -> getOneFilms($id);
         $film = $utils -> convertDateAndIntToStringForAFilm($film);
-        return $this -> render("film/details.html.twig",
+        return $this -> render(
+            "film/details.html.twig",
             ["film" => $film]);
 
     }
