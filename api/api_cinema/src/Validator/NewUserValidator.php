@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 class NewUserValidator
 {
     private string $email;
-    private string $newPassword;
+    private string $plainPassword;
     private string $confirmPassword;
     private EntityManagerInterface $entityManager;
 
@@ -19,7 +19,7 @@ class NewUserValidator
     public function __construct(array $parameters, EntityManagerInterface $entityManager)
     {
         $this -> email = $parameters["email"];
-        $this -> newPassword = $parameters["newPassword"];
+        $this -> plainPassword = $parameters["plainPassword"];
         $this -> confirmPassword = $parameters["confirmPassword"];
         $this -> entityManager = $entityManager;
     }
@@ -50,12 +50,12 @@ class NewUserValidator
 
         // Password validation
         foreach ($regex_validation as $pattern => $errorMessage) {
-            if (!preg_match($pattern, $this -> newPassword)) {
+            if (!preg_match($pattern, $this -> plainPassword)) {
                 $passwordErrors[] = $errorMessage;
             }
         }
 
-        if ($this -> newPassword !== $this -> confirmPassword) {
+        if ($this -> plainPassword !== $this -> confirmPassword) {
             $passwordErrors[] = "Les mots de passes ne sont pas identiques.";
         }
 
@@ -67,7 +67,7 @@ class NewUserValidator
             $isValid = false;
             $message = [
                 "emailErrors" => $emailErrors,
-                "passwordError" => $passwordErrors
+                "passwordErrors" => $passwordErrors
             ];
         }
         return [

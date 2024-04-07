@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Form\RegistrationFormType;
 use App\Services\UserServices;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\HttpClient\Exception\ClientException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -38,16 +40,23 @@ class RegistrationController extends AbstractController
         if ($form -> isSubmitted() && $form -> isValid()) {
             $service = new UserServices($httpClient);
             $response = $service->postOneNewUser($form -> getData());
-            dd($response);
-//            $form -> addError();
-//            new FormErrorNormalizer();
+            $statusCode = $response -> getStatusCode();
+            $arrayContent = json_decode($response -> getContent(false),true);
 
-
-            // do anything else you need here, like send an email
-
-            return $this -> redirectToRoute('app_films_index');
+            if ($statusCode === 201) {
+//                TODO ADD A FLASH
+                return $this -> redirectToRoute('app_films_index');
+            } else {
+                $emailErrors = $arrayContent["emailErrors"];
+                foreach ($emailErrors as $emailError) {
+                    $form["email"]->addError(new FormError($emailError));
+                }
+                $passwordErrors = $arrayContent["passwordErrors"];
+                foreach ($passwordErrors as $passwordError) {
+                    $form["plainPassword"]->addError(new FormError($passwordError));
+                }
+            }
         }
-
         return $this -> render('registration/register.html.twig', [
             'registrationForm' => $form,
         ]);

@@ -21,7 +21,7 @@ class BuildNewUser
     {
         $newUser = new User();
         $newUser -> setEmail($parameters["email"]);
-        $hashedPassword = $this -> userPasswordHasher -> hashPassword($newUser, $parameters["newPassword"]);
+        $hashedPassword = $this -> userPasswordHasher -> hashPassword($newUser, $parameters["plainPassword"]);
         $newUser -> setPassword($hashedPassword);
         $newUser -> setRoles(['ROLE_USER']);
         return $newUser;

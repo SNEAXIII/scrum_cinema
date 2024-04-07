@@ -8,6 +8,7 @@ use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 class UserServices
 {
@@ -22,27 +23,20 @@ class UserServices
     }
 
     /**
+     * @param array $arrayData
+     * @return ResponseInterface
      * @throws TransportExceptionInterface
-     * @throws ServerExceptionInterface
-     * @throws RedirectionExceptionInterface
-     * @throws DecodingExceptionInterface
-     * @throws ClientExceptionInterface
      */
-    public function postOneNewUser(array $arrayData): array
+    public function postOneNewUser(array $arrayData): ResponseInterface
     {
         $link = Constants::API_LINK . "/register";
-        dump($link);
-        $response = $this -> httpClient -> request(
+        return $this -> httpClient -> request(
             'POST',
             $link,
             [
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                ],
-                'body' => $arrayData,
-            ])->toArray();
-        dd($response);
-        return $response;
+                'headers' => ['Content-Type' => 'application/json',],
+                'json' => $arrayData,
+            ]);
     }
 
 
