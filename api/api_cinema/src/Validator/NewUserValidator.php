@@ -49,14 +49,15 @@ class NewUserValidator
         }
 
         // Password validation
-        foreach ($regex_validation as $pattern => $errorMessage) {
-            if (!preg_match($pattern, $this -> plainPassword)) {
-                $passwordErrors[] = $errorMessage;
+        if (empty($emailErrors)) {
+            foreach ($regex_validation as $pattern => $errorMessage) {
+                if (!preg_match($pattern, $this -> plainPassword)) {
+                    $passwordErrors[] = $errorMessage;
+                }
             }
-        }
-
-        if ($this -> plainPassword !== $this -> confirmPassword) {
-            $passwordErrors[] = "Les mots de passes ne sont pas identiques.";
+            if ($this -> plainPassword !== $this -> confirmPassword) {
+                $passwordErrors[] = "Les mots de passes ne sont pas identiques.";
+            }
         }
 
         // Final check
