@@ -29,7 +29,7 @@ class FilmUtils
     {
 //        todo supprimer les dates antidatées
         foreach ($film["seances"] as &$seance) {
-            $date = date_create_from_format("Y-m-d\TH:i:sP",$seance["dateProjection"]);
+            $date = date_create_from_format("Y-m-d\TH:i:sP", $seance["dateProjection"]);
             $seance["dateProjection"] = $date;
         }
         sort($film["seances"]);
@@ -42,15 +42,26 @@ class FilmUtils
             $minute = $date -> format("i");
             $seance["dateProjection"] = "$day $month $year, à $hour h $minute";
         }
-        $film["duree"] = $this->getMinuteToHourMinute($film["duree"]);
+        $film["duree"] = $this -> getMinuteToHourMinute($film["duree"]);
         return $film;
     }
-    public function getMinuteToHourMinute(int$minutes):string {
+
+    public function getMinuteToHourMinute(int $minutes): string
+    {
         $intHour = floor($minutes / 60);
-        $intMinutes =$minutes % 60;
+        $intMinutes = $minutes % 60;
         if ($intHour > 0) {
             return "$intHour h $intMinutes m";
         }
         return "$intMinutes m";
+    }
+
+    public function convertFilmsIntToMinute(array $films): array
+    {
+        foreach ($films as &$film) {
+            $date = $this -> getMinuteToHourMinute($film["duree"]);
+            $film["duree"] = $date;
+        }
+        return $films;
     }
 }

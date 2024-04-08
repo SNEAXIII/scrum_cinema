@@ -12,9 +12,10 @@ class FilmController extends AbstractController
 {
     #[Route('', name: 'app_accueil')]
     #[Route('/films', name: 'app_films_index')]
-    public function index(FilmServices $filmService): Response
+    public function index(FilmServices $filmService, FilmUtils $utils): Response
     {
         $films = $filmService -> getAllFilms();
+        $films = $utils->convertFilmsIntToMinute($films);
         return $this -> render(
             "film/index.html.twig",
             ["films" => $films, "link" => "http://localhost:8001/films/"]);
