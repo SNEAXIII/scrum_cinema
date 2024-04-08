@@ -2,15 +2,11 @@
 
 namespace App\Services;
 
-use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-class UserServices
+class UserService
 {
     private HttpClientInterface $httpClient;
 
@@ -36,8 +32,7 @@ class UserServices
             [
                 'headers' => ['Content-Type' => 'application/json',],
                 'json' => $arrayData,
-            ]);
+            ]
+        );
     }
-
-
 }

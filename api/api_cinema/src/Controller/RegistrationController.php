@@ -20,14 +20,11 @@ class RegistrationController extends AbstractController
         Request                     $request,
         UserPasswordHasherInterface $userPasswordHasher,
         EntityManagerInterface      $entityManager,
-        SerializerInterface         $serializer,
-        LoggerInterface             $logger
+        SerializerInterface         $serializer
     ): Response
     {
         $bodyRequest = $request -> getContent();
-        $logger -> debug($bodyRequest);
         $parameters = json_decode($bodyRequest, true);
-        $logger -> debug(implode(", ", $parameters));
         $userValidator = new NewUserValidator($parameters, $entityManager);
         $validation = $userValidator -> validate();
         if ($validation['isValid']) {

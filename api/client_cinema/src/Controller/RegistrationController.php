@@ -3,15 +3,12 @@
 namespace App\Controller;
 
 use App\Form\RegistrationFormType;
-use App\Services\UserServices;
+use App\Services\UserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
-use Symfony\Component\HttpClient\Exception\ClientException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Serializer\Normalizer\FormErrorNormalizer;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
@@ -38,22 +35,22 @@ class RegistrationController extends AbstractController
         $form -> handleRequest($request);
 
         if ($form -> isSubmitted() && $form -> isValid()) {
-            $service = new UserServices($httpClient);
-            $response = $service->postOneNewUser($form -> getData());
+            $service = new UserService($httpClient);
+            $response = $service -> postOneNewUser($form -> getData());
             $statusCode = $response -> getStatusCode();
-            $arrayContent = json_decode($response -> getContent(false),true);
+            $arrayContent = json_decode($response -> getContent(false), true);
 
             if ($statusCode === 201) {
-//                TODO ADD A FLASH
+                $this -> addFlash("succes","Votre compte à été créé avec ");
                 return $this -> redirectToRoute('app_films_index');
             } else {
                 $emailErrors = $arrayContent["emailErrors"];
                 foreach ($emailErrors as $emailError) {
-                    $form["email"]->addError(new FormError($emailError));
+                    $form["email"] -> addError(new FormError($emailError));
                 }
                 $passwordErrors = $arrayContent["passwordErrors"];
                 foreach ($passwordErrors as $passwordError) {
-                    $form["plainPassword"]->addError(new FormError($passwordError));
+                    $form["plainPassword"] -> addError(new FormError($passwordError));
                 }
             }
         }
