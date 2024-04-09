@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  database:
+    image: 'mariadb'
+    ports:
+      - '3306:3306'
+    environment:
+      - MARIADB_DATABASE=db_cinema
+      - MARIADB_PORT_NUMBER=3306
+      - MARIADB_ROOT_USER=root
+      - MARIADB_ROOT_PASSWORD=root
+    container_name: mariadb
