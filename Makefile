@@ -34,10 +34,16 @@ init:
 	make server
 	make migrate
 	make load
+launch:
+	make up
+	make server_stop
+	make server
 end:
 	make stop
 	make server_stop
-reset:
+kill:
 	make end
 	make prune
+reset:
+	make kill
 	make init
