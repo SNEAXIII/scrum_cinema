@@ -26,3 +26,5 @@ with open("api/client_cinema/src/Services/Constants.php", encoding="utf-8", mode
     file.seek(0)
     file.write(file_content_with_correct_ip)
     file.truncate()
+
+print("The ip address is successfully modified")
