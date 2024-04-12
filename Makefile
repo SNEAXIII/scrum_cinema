@@ -1,44 +1,47 @@
 api_console_path = api/api_cinema/bin/console
-apiPath="api/api_cinema"
-clientPath="api/client_cinema"
+apiWorkdir="--dir=api/api_cinema"
+clientWorkdir="--dir=api/client_cinema"
 execFlags="-w $(path)"
 dockName="ubu_custom"
 execApi="docker exec "$(execFlags)" "$(dockName)""
 execClient="docker exec "$(execFlags)" "$(dockName)""
 symfony="utils/symfony.exe"
+ignoreError=|| exit /b 0
+start_docker_desktop:
+	$(shell python manage_docker_state.py start)
+stop_wsl:
+	$(shell python manage_docker_state.py stop)
+up:
+	docker compose up -d
 stop:
 	docker compose stop
 down:
 	docker compose down --remove-orphans
-up:
-	docker compose up -d
 rm:
-	docker rm -f $(shell docker ps -aq) || exit /b 0
+	docker rm -f $(shell docker ps -aq) $(ignoreError)
 prune:
 	make rm
 	docker system prune -af
 server:
-	$(symfony) serve -d --port 8000 --dir=api/api_cinema
-	$(symfony) serve -d --port 8001 --dir=api/client_cinema
+	$(symfony) serve -d --port 8000 $(apiWorkdir)
+	$(symfony) serve -d --port 8001 $(clientWorkdir)
 server_stop:
-	$(symfony) server:stop --dir=api/api_cinema || exit /b 0
-	$(symfony) server:stop --dir=api/client_cinema || exit /b 0
+	$(symfony) server:stop $(apiWorkdir) $(ignoreError)
+	$(symfony) server:stop $(clientWorkdir) $(ignoreError)
 migrate:
 	php $(api_console_path) doctrine:migrations:migrate --no-interaction
 load:
 	php $(api_console_path) doctrine:fixtures:load --no-interaction
 ip:
 	python set_ip.py
-init:
+launch:
+	make start_docker_desktop
 	make up
-	make server_stop
 	make server
+init:
+	make launch
 	make migrate
 	make load
-launch:
-	make up
-	make server_stop
-	make server
 end:
 	make stop
 	make server_stop
