@@ -1,10 +1,6 @@
 api_console_path = api/api_cinema/bin/console
-apiWorkdir="--dir=api/api_cinema"
-clientWorkdir="--dir=api/client_cinema"
-execFlags="-w $(path)"
-dockName="ubu_custom"
-execApi="docker exec "$(execFlags)" "$(dockName)""
-execClient="docker exec "$(execFlags)" "$(dockName)""
+apiWorkdir=--dir=api/api_cinema
+clientWorkdir=--dir=api/client_cinema
 symfony="utils/symfony.exe"
 ignoreError=|| exit /b 0
 start_docker_desktop:
@@ -23,8 +19,8 @@ prune:
 	make rm
 	docker system prune -af
 server:
-	$(symfony) serve -d --port 8000 $(apiWorkdir)
-	$(symfony) serve -d --port 8001 $(clientWorkdir)
+	$(symfony) server:start -d --port 8000 $(apiWorkdir)
+	$(symfony) server:start -d --port 8001 $(clientWorkdir)
 server_stop:
 	$(symfony) server:stop $(apiWorkdir) $(ignoreError)
 	$(symfony) server:stop $(clientWorkdir) $(ignoreError)
@@ -32,6 +28,8 @@ migrate:
 	php $(api_console_path) doctrine:migrations:migrate --no-interaction
 load:
 	php $(api_console_path) doctrine:fixtures:load --no-interaction
+open:
+	$(symfony) open:local $(clientWorkdir)
 ip:
 	python set_ip.py
 launch:
@@ -40,6 +38,7 @@ launch:
 	make server
 init:
 	make launch
+	timeout /t 10 > nul
 	make migrate
 	make load
 end:
@@ -47,7 +46,7 @@ end:
 	make server_stop
 kill:
 	make end
-	make prune
+	make rm
 reset:
 	make kill
 	make init
