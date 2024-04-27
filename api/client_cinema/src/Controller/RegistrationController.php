@@ -44,14 +44,8 @@ class RegistrationController extends AbstractController
                 $this -> addFlash("succes","Votre compte à été créé avec ");
                 return $this -> redirectToRoute('app_films_index');
             } else {
-                $emailErrors = $arrayContent["emailErrors"];
-                foreach ($emailErrors as $emailError) {
-                    $form["email"] -> addError(new FormError($emailError));
-                }
-                $passwordErrors = $arrayContent["passwordErrors"];
-                foreach ($passwordErrors as $passwordError) {
-                    $form["plainPassword"] -> addError(new FormError($passwordError));
-                }
+                $form["email"] -> addError(new FormError($arrayContent["emailErrors"]));
+                $form["plainPassword"] -> addError(new FormError($arrayContent["passwordErrors"]));
             }
         }
         return $this -> render('registration/register.html.twig', [

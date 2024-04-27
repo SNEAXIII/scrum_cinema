@@ -4,7 +4,7 @@
 {% block body %}
     <h1>{{ film.titre }}</h1>
     <p>Durée : {{ film.duree }}</p>
-    <h1>Voici la liste des séances:</h1>
+    <h1 id="tableTitle">Voici la liste des séances:</h1>
     <div class="d-flex mx-auto flex-column" style="width: 90% ; margin:auto">
         <table>
             <thead>
@@ -12,6 +12,8 @@
                 <th class="date">Date</th>
                 <th class="heure">Heure</th>
                 <th class="salle">Salle</th>
+                <th class="reduit">Prix réduit</th>
+                <th class="normal">Prix normal</th>
             </tr>
             </thead>
             <tbody>
@@ -20,6 +22,8 @@
                     <td>{{ seance.dateProjection}}</td>
                     <td>{{ seance.heureProjection}}</td>
                     <td>{{ seance.salle.nom}}</td>
+                    <td>{{ seance.tarifReduit}} €</td>
+                    <td>{{ seance.tarifNormal}} €</td>
                 </tr>
             {% endfor %}
             </tbody>
