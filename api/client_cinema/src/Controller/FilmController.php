@@ -25,7 +25,7 @@ class FilmController extends AbstractController
     public function show(FilmServices $filmService, FilmUtils $utils, int $id): Response
     {
         $film = $filmService -> getOneFilms($id);
-        $film = $utils -> convertDateAndIntToStringForAFilm($film);
+        $film = $utils -> formatAndSortFilmSeances($film);
         return $this -> render(
             "film/details.html.twig",
             ["film" => $film]);

@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use DateTime;
+
 class FilmUtils
 {
     private array $intToMonthArray;
@@ -25,23 +27,32 @@ class FilmUtils
         ];
     }
 
-    public function convertDateAndIntToStringForAFilm(array $film): array
+    public function formatAndSortFilmSeances(array $film): array
     {
-//        todo supprimer les dates antidatées
-        foreach ($film["seances"] as &$seance) {
+        $seances = $film["seances"];
+        // On convertit les dates en datetime
+        foreach ($seances as &$seance) {
             $date = date_create_from_format("Y-m-d\TH:i:sP", $seance["dateProjection"]);
             $seance["dateProjection"] = $date;
         }
-        sort($film["seances"]);
-        foreach ($film["seances"] as &$seance) {
+        // On supprime les dates antidatées
+        $seances = array_filter(
+            $seances, fn($date) => $date['dateProjection'] >= new DateTime('now')
+        );
+        // On trie les dates dans l'ordre croissant
+        sort($seances);
+        foreach ($seances as &$seance) {
             $date = $seance["dateProjection"];
             $year = $date -> format("Y");
             $month = $this -> intToMonthArray[intval($date -> format("m"))];
-            $day = $date -> format("d");
-            $hour = $date -> format("H");
-            $minute = $date -> format("i");
-            $seance["dateProjection"] = "$day $month $year, à $hour h $minute";
+            $day = intval($date -> format("d"));
+            $hour = intval($date -> format("H"));
+            $minute = intval($date -> format("i"));
+            $seance["dateProjection"] = "$day $month $year";
+            $seance["heureProjection"] = "$hour h $minute";
         }
+        // On attribue les valeurs au tableau
+        $film["seances"] = $seances;
         $film["duree"] = $this -> getMinuteToHourMinute($film["duree"]);
         return $film;
     }

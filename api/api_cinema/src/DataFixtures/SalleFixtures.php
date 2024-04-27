@@ -15,7 +15,7 @@ class SalleFixtures extends Fixture
         $faker = Factory ::create("fr_FR");
         foreach (range(0, 4) as $i) {
             $newSalle = new Salle();
-            $newSalle->setNom($faker->name());
+            $newSalle->setNom($faker->firstName());
             $newSalle->setNombrePlaces($faker->numberBetween(5, 400));
             $manager -> persist($newSalle);
         }
