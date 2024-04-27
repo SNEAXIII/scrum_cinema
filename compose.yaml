@@ -1,4 +1,9 @@
 version: '3.7'
+
+networks:
+  symfony:
+    driver: bridge
+
 services:
   database:
     image: 'mariadb'
@@ -10,3 +15,7 @@ services:
       - MARIADB_ROOT_USER=root
       - MARIADB_ROOT_PASSWORD=root
     container_name: mariadb
+    networks:
+      - symfony
+    volumes:
+      - ./mysql:/var/lib/mysql
