@@ -6,8 +6,23 @@
     <p>Durée : {{ film.duree }}</p>
     <h1>Voici la liste des séances:</h1>
     <div class="d-flex mx-auto flex-column" style="width: 90% ; margin:auto">
-        {% for seance in film.seances %}
-            <div>{{ seance.dateProjection}}</div>
-        {% endfor %}
+        <table>
+            <thead>
+            <tr>
+                <th class="date">Date</th>
+                <th class="heure">Heure</th>
+                <th class="salle">Salle</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for seance in film.seances %}
+                <tr>
+                    <td>{{ seance.dateProjection}}</td>
+                    <td>{{ seance.heureProjection}}</td>
+                    <td>{{ seance.salle.nom}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}
