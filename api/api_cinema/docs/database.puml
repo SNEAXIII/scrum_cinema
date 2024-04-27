@@ -1,14 +1,5 @@
 @startuml
 
-abstract Visiteur{
-    +creerCompteUtilisateur()
-    +seConnecter()
-    +listerFilmsAffiche()
-    +listerProjectionPourUnFilm()
-    +calculerNombrePlaceParPeriode()
-    +calculerNombrePlaceParFilm()
-}
-
 class User {
     -int $id
     -string $email
@@ -44,7 +35,6 @@ class Salle {
     -int $nombrePlaces
 }
 
-Visiteur --|> User
 User "1..1" --> "0..*" Reservation : > Reserve
 Reservation "0..*" --> "1..1" Seance : > Concerne
 Seance "0..*" --> "1..1" Film : > Diffuse
