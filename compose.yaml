@@ -17,5 +17,5 @@ services:
     container_name: mariadb
     networks:
       - symfony
-    volumes:
-      - ./mysql:/var/lib/mysql
+#    volumes:
+#      - ./mysql:/var/lib/mysql
