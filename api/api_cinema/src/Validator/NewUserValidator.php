@@ -33,7 +33,7 @@ class NewUserValidator
         $regex_validation = [
             "/.{10,}/" => "10 caractères",
             "/(?=.*\d).*/" => "un chiffre",
-            "/(?=.*[?;!:=]).*/" => "moins un caractère spécial : ?;!:=",
+            "/(?=.*[?;!:=]).*/" => "moins un caractère spécial ?;!:=",
             "/(?=.*[a-z]).*/" => "une minuscule",
             "/(?=.*[A-Z]).*/" => "une majuscule",
         ];
