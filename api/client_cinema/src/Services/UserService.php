@@ -35,4 +35,22 @@ class UserService
             ]
         );
     }
+
+    /**
+     * @param array $arrayData
+     * @return ResponseInterface
+     * @throws TransportExceptionInterface
+     */
+    public function postLoginCheck(array $arrayData): ResponseInterface
+    {
+        $link = Constants::API_LINK . "/login_check";
+        return $this -> httpClient -> request(
+            'POST',
+            $link,
+            [
+                'headers' => ['Content-Type' => 'application/json',],
+                'json' => $arrayData,
+            ]
+        );
+    }
 }

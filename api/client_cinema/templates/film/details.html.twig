@@ -2,6 +2,7 @@
 
 {% block title %}Détail de film{% endblock %}
 {% block body %}
+    <link href="{{ asset("styles/table.css") }}" rel="stylesheet">
     <h1>{{ film.titre }}</h1>
     <p>Durée : {{ film.duree }}</p>
     <h1 id="tableTitle">Voici la liste des séances:</h1>

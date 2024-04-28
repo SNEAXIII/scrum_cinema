@@ -1,0 +1,84 @@
+form {
+    margin: 20px auto;
+    flex-direction: column;
+    display: flex;
+    width: 30%;
+}
+
+label, input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+form li {
+    list-style-type: none;
+}
+
+form ul {
+    color: red;
+}
+
+button {
+    appearance: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    isolation: isolate;
+    margin: 20px auto;
+}
+
+.button {
+    color: #121212;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    outline: 2px solid transparent;
+    outline-offset: 4px;
+    position: relative;
+}
+
+.button:focus-visible {
+    outline-color: #1212df;
+}
+
+.button::before {
+    content: '';
+    z-index: -1;
+    border-radius: inherit;
+    background: #121212;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 200ms ease;
+}
+
+.button:hover::before {
+    transition: opacity 100ms ease;
+    opacity: 1;
+}
+
+.button:active::before {
+    transition: opacity 100ms ease;
+    opacity: 0;
+}
+
+.button > .front {
+    padding: 12px 96px;
+    border-radius: inherit;
+    background: #ffffff;
+    transition: transform 200ms ease;
+}
+
+.button:hover > .front {
+    transform: translate(-8px, -8px);
+}
+
+.button:active > .front {
+    transition: transform 50ms ease;
+    transform: translate(0px, 0px);
+}

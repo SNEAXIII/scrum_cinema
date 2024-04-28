@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block body %}
+    <link href="{{ asset("styles/forms.css") }}" rel="stylesheet">
+    {% for message in app.flashes('succes') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <h1>Se connecter</h1>
+
+    {{ form_errors(loginForm) }}
+
+    {{ form_start(loginForm) }}
+    {{ form_row(loginForm.username, {label: 'Email'}) }}
+    {{ form_row(loginForm.password, {label: 'Saisissez mot de passe'}) }}
+
+    <button class="button" type="submit">
+        <div class="front">
+            <span>Connexion</span>
+        </div>
+    </button>
+    {{ form_end(loginForm) }}
+{% endblock %}
