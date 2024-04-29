@@ -7,6 +7,8 @@ start_docker_desktop:
 	$(shell python manage_docker_state.py start)
 stop_wsl:
 	$(shell python manage_docker_state.py stop)
+create_ssl_keys:
+	php $(api_console_path) lexik:jwt:generate-keypair
 up:
 	docker compose up -d
 stop:
