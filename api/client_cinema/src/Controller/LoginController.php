@@ -36,15 +36,37 @@ class LoginController extends AbstractController
             $service = new UserService($httpClient);
             $response = $service -> postLoginCheck($form -> getData());
             if ($response -> getStatusCode() === 200) {
-                $this -> addFlash("succes","Vous vous êtes authentifié avec ");
-//                todo ajouter le token dans le ctx de persistance
+                $this -> addFlash("succes", "Vous vous êtes authentifié avec ");
                 $arrayContent = json_decode($response -> getContent(false), true);
-                $token = $arrayContent["token"];
+                $request -> getSession() -> set('token', $arrayContent["token"]);
                 return $this -> redirectToRoute('app_films_index');
             } else {
                 $form["username"] -> addError(new FormError("Le compte n'existe pas ou le mot de passe est incorrect"));
             }
         }
+        return $this -> render('login/login.html.twig', [
+            'loginForm' => $form,
+        ]);
+    }
+
+    #[Route(path: '/logintest', name: 'app_logintest')]
+    public function logintest(
+        Request             $request,
+        HttpClientInterface $httpClient
+    ): Response
+    {
+        $service = new UserService($httpClient);
+        $response = $service -> postLoginTest($request -> getSession()->get("token"));
+        dd($response);
+        if ($response -> getStatusCode() === 200) {
+            $this -> addFlash("succes", "Vous vous êtes authentifié avec ");
+            $arrayContent = json_decode($response -> getContent(false), true);
+            $request -> getSession() -> set('token', $arrayContent["token"]);
+            return $this -> redirectToRoute('app_films_index');
+        } else {
+            $form["username"] -> addError(new FormError("Le compte n'existe pas ou le mot de passe est incorrect"));
+        }
+
         return $this -> render('login/login.html.twig', [
             'loginForm' => $form,
         ]);

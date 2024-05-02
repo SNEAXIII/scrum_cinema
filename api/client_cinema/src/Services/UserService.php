@@ -53,4 +53,21 @@ class UserService
             ]
         );
     }
+
+    /**
+     * @param string $token
+     * @return ResponseInterface
+     * @throws TransportExceptionInterface
+     */
+    public function postLoginTest(string $token): ResponseInterface
+    {
+        $link = Constants::API_LINK . "/logintest";
+        return $this -> httpClient -> request(
+            'GET',
+            $link,
+            [
+                'headers' => ['Authorization' => "Bearer $token"]
+            ]
+        );
+    }
 }

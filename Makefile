@@ -34,6 +34,9 @@ open:
 	$(symfony) open:local $(clientWorkdir)
 ip:
 	python set_ip.py
+portainer:
+	docker run -d -p 80:80 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+	start https://localhost:9443/
 launch:
 	make start_docker_desktop
 	make up
