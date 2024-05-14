@@ -15,6 +15,9 @@
                 <th class="salle">Salle</th>
                 <th class="reduit">Prix réduit</th>
                 <th class="normal">Prix normal</th>
+                {% if estConnecte == true%}
+                    <th class="reservation">Réservation</th>
+                {% endif  %}
             </tr>
             </thead>
             <tbody>
@@ -25,9 +28,15 @@
                     <td>{{ seance.salle.nom}}</td>
                     <td>{{ seance.tarifReduit}} €</td>
                     <td>{{ seance.tarifNormal}} €</td>
+                    {% if estConnecte == true%}
+                        <td><a href="{{ path('app_reserver', {'id': seance.id}) }}">Réserver</a></td>
+                    {% endif  %}
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+        {% if estConnecte == false%}
+            <p>Pour réserver une séance vous devez être connecté ><a href="{{ path('app_login') }}">Se connecter</a><</p>
+        {% endif  %}
     </div>
 {% endblock %}
