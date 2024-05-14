@@ -28,7 +28,7 @@ class ReservationService
     {
         $link = Constants::API_LINK . "/reserver";
         return $this -> httpClient -> request(
-            'GET',
+            'POST',
             $link,
             [
                 'headers' => [
