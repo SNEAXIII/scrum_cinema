@@ -3,8 +3,7 @@
 {% block title %}Détail de film{% endblock %}
 {% block body %}
     <link href="{{ asset("styles/table.css") }}" rel="stylesheet">
-    <h1>{{ film.titre }}</h1>
-    <p>Durée : {{ film.duree }}</p>
+    <h1>{{ film.titre }} ({{ film.duree }})</h1>
     <h1 id="tableTitle">Voici la liste des séances:</h1>
     <div class="d-flex mx-auto flex-column" style="width: 90% ; margin:auto">
         <table>
@@ -15,28 +14,35 @@
                 <th class="salle">Salle</th>
                 <th class="reduit">Prix réduit</th>
                 <th class="normal">Prix normal</th>
-                {% if estConnecte == true%}
-                    <th class="reservation">Réservation</th>
-                {% endif  %}
+                {% if estConnecte == true %}
+                    <th class="reservation">Nombre de places</th>
+                {% endif %}
             </tr>
             </thead>
             <tbody>
             {% for seance in film.seances %}
                 <tr>
-                    <td>{{ seance.dateProjection}}</td>
-                    <td>{{ seance.heureProjection}}</td>
-                    <td>{{ seance.salle.nom}}</td>
-                    <td>{{ seance.tarifReduit}} €</td>
-                    <td>{{ seance.tarifNormal}} €</td>
-                    {% if estConnecte == true%}
-                        <td><a href="{{ path('app_reserver', {'id': seance.id}) }}">Réserver</a></td>
-                    {% endif  %}
+                    <td>{{ seance.dateProjection }}</td>
+                    <td>{{ seance.heureProjection }}</td>
+                    <td>{{ seance.salle.nom }}</td>
+                    <td>{{ seance.tarifReduit }} €</td>
+                    <td>{{ seance.tarifNormal }} €</td>
+                    {% if estConnecte == true %}
+                        <td>
+                            <form method="post" style="display: flex">
+                                <input type="hidden" id="id_seance" value="{{ seance.id }}">
+                                <input style="width: 50px" type="number" min="1" id="nb_places" name="nb_places">
+                                <input type="submit" value="Réserver">
+                            </form>
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-        {% if estConnecte == false%}
-            <p>Pour réserver une séance vous devez être connecté ><a href="{{ path('app_login') }}">Se connecter</a><</p>
-        {% endif  %}
+        {% if estConnecte == false %}
+            <span class="m-auto" style="padding-top: 20px">Pour réserver une séance vous devez être connecté ><a href="{{ path('app_login') }}">Se connecter</a><
+            </span>
+        {% endif %}
     </div>
 {% endblock %}
