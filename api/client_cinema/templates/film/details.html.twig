@@ -30,7 +30,7 @@
                     {% if estConnecte == true %}
                         <td>
                             <form method="post" style="display: flex">
-                                <input type="hidden" id="id_seance" value="{{ seance.id }}">
+                                <input type="hidden" id="id_seance" name="id_seance" value="{{ seance.id }}">
                                 <input style="width: 50px" type="number" min="1" id="nb_places" name="nb_places">
                                 <input type="submit" value="Réserver">
                             </form>
