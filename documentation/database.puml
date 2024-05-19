@@ -1,0 +1,48 @@
+
+@startuml
+!theme carbon-gray
+skinparam ClassBorderColor black
+skinparam ClassBackgroundColor white
+skinparam BackgroundColor Linen
+skinparam ArrowHeadColor black
+skinparam Color black
+
+class User {
+    -int $id
+    -string $email
+    -string $motDePasse
+    -array $roles
+    +abonner()
+    +reserverSeance()
+}
+class Film {
+    -int $id
+    -string $titre
+    -int $duree
+}
+
+class Reservation{
+    -int $id
+    -int $nombrePlaces
+    -datetime $dateReservation
+    -float $montantTotal
+}
+
+class Seance {
+    -int $id
+    -datetime $dateProjection
+    -float $tarifNormal
+    -float $tarifReduit
+}
+
+class Salle {
+    -string $id
+    -string $nom
+    -int $nombrePlaces
+}
+
+User "1..1" --> "0..*" Reservation : > Reserve
+Reservation "0..*" --> "1..1" Seance : > Concerne
+Seance "0..*" --> "1..1" Film : > Diffuse
+Seance "1..*" --> "1..1" Salle : > Se situe
+@enduml

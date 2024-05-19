@@ -1,0 +1,31 @@
+@startuml
+!theme carbon-gray
+skinparam ClassBorderColor black
+skinparam ClassBackgroundColor white
+skinparam BackgroundColor Linen
+skinparam ArrowHeadColor black
+skinparam Color black
+skinparam actorStyle awesome
+skinparam actor {
+BackgroundColor gray
+}
+
+usecase "Créer un compte" as createAccount
+usecase "Se connecter" as login
+usecase "Lister les films à l'affiche" as listMovies
+usecase "Afficher un film et ses séances" as listMovieSessions
+usecase "Réserver une séance" as bookSession
+
+actor "Utilisateur connecté" as user
+user --> (listMovies)
+user --> (bookSession)
+user --> (listMovieSessions)
+
+actor "Visiteur" as guest
+guest --> (login)
+guest --> (createAccount)
+guest --> (listMovies)
+guest --> (listMovieSessions)
+
+
+@enduml
