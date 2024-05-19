@@ -40,7 +40,7 @@ class FilmUtils
             $seances, fn($date) => $date['dateProjection'] >= new DateTime('now')
         );
         // On trie les dates dans l'ordre croissant
-        sort($seances);
+        rsort($seances);
         foreach ($seances as &$seance) {
             $date = $seance["dateProjection"];
             $year = $date -> format("Y");
