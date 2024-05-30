@@ -40,6 +40,7 @@ class Seance
 
     #[ORM\ManyToOne(inversedBy: 'seances')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['create_reservation'])]
     private ?Film $film = null;
 
     public function __construct()

@@ -20,7 +20,14 @@ class ReservationRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Reservation::class);
     }
-
+    public function getSumOrderedPlaceForOneSeance($idSeance) : ?int {
+        return $this->createQueryBuilder('s')
+            ->select('SUM(s.nombrePlaces) as total')
+            ->andWhere('s.seance = :idSeance')
+            ->setParameter('idSeance', $idSeance)
+            ->getQuery()
+            ->getOneOrNullResult()["total"] ?? 0;
+    }
 //    /**
 //     * @return Reservation[] Returns an array of Reservation objects
 //     */

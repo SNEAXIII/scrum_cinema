@@ -24,7 +24,7 @@ class FilmController extends AbstractController
             ["films" => $films, "link" => "http://localhost:8001/films/"]);
     }
 
-    #[Route('/films/{id}', name: 'app_films_details', requirements: ['id' => '\d+'], methods: ["GET","POST"])]
+    #[Route('/films/{id}', name: 'app_films_details', requirements: ['id' => '\d+'], methods: ["GET", "POST"])]
     public function show(
         FilmServices        $filmService,
         FilmUtils           $utils,
@@ -41,9 +41,22 @@ class FilmController extends AbstractController
             $nombrePlaces = intval($request -> get("nb_places"));
             if (!empty($idSeance) && !empty($nombrePlaces) && $nombrePlaces > 0) {
                 $reservationService = new ReservationService($httpClient);
-                $reservationService -> postReserverUneSeance($token, $idSeance, $nombrePlaces);
-            } else {
-                $error = "Veuillez saisir des données valides !";
+                $response = $reservationService -> postReserverUneSeance($token, $idSeance, $nombrePlaces);
+                $arrayContent = json_decode($response -> getContent(false), true);
+                if ($response -> getStatusCode() === 201) {
+                    $titleFilm = $arrayContent["seance"]["film"]["titre"];
+                    $nameSalle = $arrayContent["seance"]["salle"]["nom"];
+                    $this -> addFlash(
+                        "success",
+                        "Vous avez réservé $nombrePlaces places pour le film $titleFilm dans la salle $nameSalle avec succès."
+                    );
+                    return $this -> redirectToRoute('app_films_index');
+                } else {
+                    $this -> addFlash(
+                        "error",
+                        $arrayContent["message"]
+                    );
+                }
             }
         }
 

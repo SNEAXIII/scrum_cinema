@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ReservationRepository;
 use App\Repository\SeanceRepository;
 use App\Services\BuildNewReservation;
 use App\Services\BuildNewUser;
@@ -23,6 +24,7 @@ class ReservationController extends AbstractController
     private EntityManagerInterface $entityManager;
     private UserRepository $userRepository;
     private SeanceRepository $seanceRepository;
+    private ReservationRepository $reservationRepository;
 
     /**
      * @param JWTTokenManagerInterface $jwtManager
@@ -30,20 +32,16 @@ class ReservationController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @param UserRepository $userRepository
      * @param SeanceRepository $seanceRepository
+     * @param ReservationRepository $reservationRepository
      */
-    public function __construct(
-        JWTTokenManagerInterface $jwtManager,
-        TokenStorageInterface    $tokenStorageInterface,
-        EntityManagerInterface   $entityManager,
-        UserRepository           $userRepository,
-        SeanceRepository         $seanceRepository
-    )
+    public function __construct(JWTTokenManagerInterface $jwtManager, TokenStorageInterface $tokenStorageInterface, EntityManagerInterface $entityManager, UserRepository $userRepository, SeanceRepository $seanceRepository, ReservationRepository $reservationRepository)
     {
         $this -> jwtManager = $jwtManager;
         $this -> tokenStorageInterface = $tokenStorageInterface;
         $this -> entityManager = $entityManager;
         $this -> userRepository = $userRepository;
         $this -> seanceRepository = $seanceRepository;
+        $this -> reservationRepository = $reservationRepository;
     }
 
 
@@ -59,13 +57,17 @@ class ReservationController extends AbstractController
         $userObject = $this -> userRepository -> findOneBy(['email' => $email]);
         $bodyRequest = $request -> getContent();
         $parameters = json_decode($bodyRequest, true);
-//        dd($userObject);
-        $seanceObject = $this->seanceRepository->find($parameters["id"]);
+        $seanceObject = $this -> seanceRepository -> find($parameters["id"]);
         $reservationValidator = new NewReservationValidator();
-        $validation = $reservationValidator -> validate($userObject, $seanceObject ,$parameters);
+        $validation = $reservationValidator -> validate(
+            $userObject,
+            $seanceObject,
+            $parameters,
+            $this -> reservationRepository
+        );
         if ($validation['isValid']) {
             $buildNewReservation = new BuildNewReservation();
-            $newReservation = $buildNewReservation -> execute($userObject,$seanceObject ,$parameters);
+            $newReservation = $buildNewReservation -> execute($userObject, $seanceObject, $parameters);
             $this -> entityManager -> persist($newReservation);
             $this -> entityManager -> flush();
             $jsoncontent = $serializer -> serialize($newReservation, "json", ['groups' => 'create_reservation']);
@@ -75,9 +77,8 @@ class ReservationController extends AbstractController
                 ["content-type" => "application/json"]
             );
         } else {
-            $jsoncontent = json_encode($validation['message']);
             return new Response(
-                $jsoncontent,
+                "{\"message\" : \"{$validation['message']}\"}",
                 Response::HTTP_UNPROCESSABLE_ENTITY,
                 ["content-type" => "application/json"]
             );

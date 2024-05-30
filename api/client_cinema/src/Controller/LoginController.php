@@ -36,7 +36,7 @@ class LoginController extends AbstractController
             $service = new UserService($httpClient);
             $response = $service -> postLoginCheck($form -> getData());
             if ($response -> getStatusCode() === 200) {
-                $this -> addFlash("succes", "Vous vous êtes authentifié avec ");
+                $this -> addFlash("success", "Vous vous êtes authentifié avec succès;");
                 $arrayContent = json_decode($response -> getContent(false), true);
                 $request -> getSession() -> set('token', $arrayContent["token"]);
                 return $this -> redirectToRoute('app_films_index');
