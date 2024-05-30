@@ -25,10 +25,10 @@
 <body>
 
 {% include "partials/_menu.html.twig" %}
-{# Afficher les éventuels messages flash #}
+
 {% for label,messages in app.flashes %}
     {% for message in messages %}
-        <div class="alert alert-success">{{ message }}</div>
+        <div class="alert alert-{{ label }}">{{ message }}</div>
     {% endfor %}
 {% endfor %}
 {% block body %}
