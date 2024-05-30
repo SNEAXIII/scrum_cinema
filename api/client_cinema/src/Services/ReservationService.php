@@ -21,21 +21,19 @@ class ReservationService
     /**
      * @param string $token
      * @param int $idSeance
+     * @param int $nombrePlaces
      * @return ResponseInterface
      * @throws TransportExceptionInterface
      */
-    public function postReserverUnFilm(string $token,int $idSeance): ResponseInterface
+    public function postReserverUneSeance(string $token, int $idSeance, int $nombrePlaces): ResponseInterface
     {
         $link = Constants::API_LINK . "/reserver";
         return $this -> httpClient -> request(
             'POST',
             $link,
             [
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                    'Authorization' => "Bearer $token"
-                ],
-                'json' => ["id"=>$idSeance],
+                'headers' => ['Content-Type' => 'application/json', 'Authorization' => "Bearer $token"],
+                'json' => ["id" => $idSeance, "nb_places" => $nombrePlaces],
             ]
         );
     }

@@ -17,7 +17,7 @@ class Salle
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    #[Groups(['show_film'])]
+    #[Groups(['show_film','create_reservation'])]
     private ?string $nom = null;
 
     #[ORM\Column]

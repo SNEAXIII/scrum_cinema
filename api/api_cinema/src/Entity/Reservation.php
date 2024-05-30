@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
 class Reservation
@@ -12,13 +13,15 @@ class Reservation
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
+    #[Groups(['create_reservation'])]
     #[ORM\Column]
     private ?int $nombrePlaces = null;
 
+    #[Groups(['create_reservation'])]
     #[ORM\Column]
     private ?\DateTimeImmutable $dateReservation = null;
 
+    #[Groups(['create_reservation'])]
     #[ORM\Column]
     private ?float $montantTotal = null;
 
@@ -26,6 +29,7 @@ class Reservation
     #[ORM\JoinColumn(nullable: false)]
     private ?User $reservePar = null;
 
+    #[Groups(['create_reservation'])]
     #[ORM\ManyToOne(inversedBy: 'reservations')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Seance $seance = null;
@@ -95,15 +99,15 @@ class Reservation
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
+//    public function getUser(): ?User
+//    {
+//        return $this->user;
+//    }
+//
+//    public function setUser(?User $user): static
+//    {
+//        $this->user = $user;
+//
+//        return $this;
+//    }
 }

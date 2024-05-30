@@ -35,7 +35,7 @@ class Seance
 
     #[ORM\ManyToOne(inversedBy: 'seance')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(['show_film'])]
+    #[Groups(['show_film','create_reservation'])]
     private ?Salle $salle = null;
 
     #[ORM\ManyToOne(inversedBy: 'seances')]
