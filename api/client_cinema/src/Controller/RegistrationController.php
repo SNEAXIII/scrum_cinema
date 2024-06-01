@@ -41,7 +41,7 @@ class RegistrationController extends AbstractController
             $arrayContent = json_decode($response -> getContent(false), true);
 
             if ($statusCode === 201) {
-                $this -> addFlash("succes","Votre compte à été créé avec ");
+                $this -> addFlash("success","Votre compte à été créé avec succès !");
                 return $this -> redirectToRoute('app_films_index');
             } else {
                 $form["email"] -> addError(new FormError($arrayContent["emailErrors"]));

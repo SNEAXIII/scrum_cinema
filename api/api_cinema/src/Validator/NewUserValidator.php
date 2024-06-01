@@ -33,7 +33,7 @@ class NewUserValidator
         $regex_validation = [
             "/.{10,}/" => "10 caractères",
             "/(?=.*\d).*/" => "un chiffre",
-            "/(?=.*[?;!:=]).*/" => "moins un caractère spécial ?;!:=",
+            "/(?=.*[?;!:=]).*/" => "un caractère spécial ?;!:=",
             "/(?=.*[a-z]).*/" => "une minuscule",
             "/(?=.*[A-Z]).*/" => "une majuscule",
         ];
@@ -61,7 +61,7 @@ class NewUserValidator
         } elseif (!preg_match("/^[a-zA-Z\d?;!:=]*$/", $this -> plainPassword)) {
             $message["passwordErrors"] =
                 "Le mot de passe doit contenir uniquement des lettres minuscules ou majuscules," .
-                " des chiffres, ou les symboles suivants : ?;!:=.";
+            " des chiffres, ou les symboles suivants : ?;!:=.";
         } else {
             $arrayPasswordErrors = [];
             foreach ($regex_validation as $pattern => $errorMessage) {
